@@ -1,0 +1,11 @@
+<div class="zone-block" *ngFor="let zoneItem of zoneItems | keyvalue">
+  <div class="zone-block__wrapper" [class.zone-block__sku--margin]="zoneItem.value[i + 1]?.joinedWith"
+       *ngFor="let item of zoneItem.value; let i = index">
+    <span class="zone-block__linker" *ngIf="!!item.joinedWith"></span>
+    <div class="zone-block__sku"
+         [ngClass]="'zone-block__sku--border' + parseStatus(item.status, !!item.joinedWith, zoneItem.value[i + 1]?.status)">
+      {{item.sku}}
+      <span class="zone-block__defaultSku">{{item.defaultSku}}</span>
+    </div>
+  </div>
+</div>

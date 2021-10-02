@@ -1,0 +1,60 @@
+@import "../../../../../assets/styles/helpers/mixins";
+@import "../../../../../assets/styles/helpers/variables";
+
+$zoneStatuses: ('-open': $zone-status-open, '-closed': $zone-status-closed, '-closed__before-open': $zone-status-closed__before-open);
+.zone-block {
+  @include flex-box(flex, center, flex-start, wrap);
+
+  .zone-block__wrapper {
+    @include flex-box(flex, center, flex-start, wrap);
+    margin: 0 8px 8px 0;
+
+
+    &.zone-block__sku--margin {
+      margin: 0 0 8px 0;
+    }
+
+    .zone-block__sku {
+      background-color: $zoneItem-blue;
+      padding: 23px 0;
+      border-radius: 5px;
+      width: 110px;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      position: relative;
+
+      .zone-block__defaultSku {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 12px;
+        padding: 5px 10px 0 0;
+      }
+    }
+
+    .zone-block__linker {
+      background-color: $zone-linker;
+      width: 8px;
+      height: 45px;
+      display: block;
+    }
+  }
+}
+
+@each $status, $color in $zoneStatuses {
+  .zone-block__sku--border#{$status} {
+    &::after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 50px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: $color;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../assets/styles/helpers/variables";
+
+.zones-block {
+  height: 100vh;
+  background-color: $bg-blue;
+  padding: 20px;
+
+  h2 {
+    color: white;
+    font-weight: normal;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
